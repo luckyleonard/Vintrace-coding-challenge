@@ -20,7 +20,7 @@ const StyledHeader = styled.div`
 
 function PageLayout({ children }) {
   const match = useRouteMatch({ path: '/', exact: true });
-  console.log(match);
+
   return (
     <Layout>
       {match && (
