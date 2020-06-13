@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Layout, Input, Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Layout, Input, Avatar, Button } from 'antd';
+import { UserOutlined, LeftOutlined } from '@ant-design/icons';
+import { Link, useRouteMatch, useHistory } from 'react-router-dom';
 
 import vintraceLogo from '../../assets/images/Vintrace_logo.png';
 
@@ -21,10 +21,10 @@ const StyledHeader = styled.div`
 
 function PageLayout({ children, searchInput, handleSearchChange }) {
   const match = useRouteMatch({ path: '/', exact: true });
-
+  const history = useHistory();
   return (
     <Layout>
-      {match && (
+      {match ? (
         <Header>
           <StyledHeader>
             <Link to='/' style={{ height: '40px' }}>
@@ -39,6 +39,13 @@ function PageLayout({ children, searchInput, handleSearchChange }) {
             <Avatar size={40} icon={<UserOutlined />} />
           </StyledHeader>
         </Header>
+      ) : (
+        <Button
+          type='primary'
+          icon={<LeftOutlined />}
+          onClick={() => history.goBack()}>
+          Go Back
+        </Button>
       )}
       <Content>{children}</Content>
       <Footer style={{ textAlign: 'center' }}>
