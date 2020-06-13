@@ -8,18 +8,18 @@ import WineDetail from '../WineDetail';
 
 function App() {
   return (
-    <Layout>
-      <Router>
+    <Router>
+      <Layout>
         <Switch>
-          <Route excat path='/'>
+          <Route exact path='/'>
             <WineList />
           </Route>
-          <Route excat path='/wine/:lotCode'>
+          <Route exact path='/wine/:lotCode'>
             <WineDetail />
           </Route>
         </Switch>
-      </Router>
-    </Layout>
+      </Layout>
+    </Router>
   );
 }
 

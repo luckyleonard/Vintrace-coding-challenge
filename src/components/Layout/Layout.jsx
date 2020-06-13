@@ -20,18 +20,19 @@ const StyledHeader = styled.div`
 
 function PageLayout({ children }) {
   const match = useRouteMatch({ path: '/', exact: true });
-
+  console.log(match);
   return (
     <Layout>
-      {match}&&(
-      <Header>
-        <StyledHeader>
-          <Logo alt='Vintrace' src={vintraceLogo} />
-          <Input.Search placeholder='Search Wines' />
-          <Avatar size={37} icon={<UserOutlined />} />
-        </StyledHeader>
-      </Header>
-      )<Content>{children}</Content>
+      {match && (
+        <Header>
+          <StyledHeader>
+            <Logo alt='Vintrace' src={vintraceLogo} />
+            <Input.Search placeholder='Search Wines' />
+            <Avatar size={37} icon={<UserOutlined />} />
+          </StyledHeader>
+        </Header>
+      )}
+      <Content>{children}</Content>
       <Footer style={{ textAlign: 'center' }}>
         Developed by Leonard(DI ZHU) @Email:
         <a href='mailto:dzhu31@hotmail.com'>dzhu31@hotmail.com</a>
