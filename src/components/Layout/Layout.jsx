@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Layout, Input, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { useRouteMatch } from 'react-router-dom';
+
 import vintraceLogo from '../../assets/images/Vintrace_logo.png';
 
 const { Header, Content, Footer } = Layout;
@@ -17,8 +19,11 @@ const StyledHeader = styled.div`
 `;
 
 function PageLayout({ children }) {
+  const match = useRouteMatch({ path: '/', exact: true });
+
   return (
     <Layout>
+      {match}&&(
       <Header>
         <StyledHeader>
           <Logo alt='Vintrace' src={vintraceLogo} />
@@ -26,7 +31,7 @@ function PageLayout({ children }) {
           <Avatar size={37} icon={<UserOutlined />} />
         </StyledHeader>
       </Header>
-      <Content>{children}</Content>
+      )<Content>{children}</Content>
       <Footer style={{ textAlign: 'center' }}>
         Developed by Leonard(DI ZHU) @Email:
         <a href='mailto:dzhu31@hotmail.com'>dzhu31@hotmail.com</a>
