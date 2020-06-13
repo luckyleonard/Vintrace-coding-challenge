@@ -2,15 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Layout, Input, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 import vintraceLogo from '../../assets/images/Vintrace_logo.png';
 
 const { Header, Content, Footer } = Layout;
 
 const Logo = styled.img`
-  height: 37px;
-  margin-right: 20 px;
+  height: 40px;
+
+  vertical-align: baseline;
 `;
 
 const StyledHeader = styled.div`
@@ -18,7 +19,7 @@ const StyledHeader = styled.div`
   justify-content: space-between;
 `;
 
-function PageLayout({ children }) {
+function PageLayout({ children, searchInput, handleSearchChange }) {
   const match = useRouteMatch({ path: '/', exact: true });
 
   return (
@@ -26,9 +27,16 @@ function PageLayout({ children }) {
       {match && (
         <Header>
           <StyledHeader>
-            <Logo alt='Vintrace' src={vintraceLogo} />
-            <Input.Search placeholder='Search Wines' />
-            <Avatar size={37} icon={<UserOutlined />} />
+            <Link to='/' style={{ height: '40px' }}>
+              <Logo alt='Vintrace' src={vintraceLogo} />
+            </Link>
+            <Input.Search
+              placeholder='Search Wines'
+              value={searchInput}
+              onChange={handleSearchChange}
+              style={{ margin: '10px 20px' }}
+            />
+            <Avatar size={40} icon={<UserOutlined />} />
           </StyledHeader>
         </Header>
       )}

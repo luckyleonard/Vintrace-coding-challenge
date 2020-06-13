@@ -18,12 +18,16 @@ function App() {
     );
   }, []);
 
+  const handleSearchChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
   return (
     <Router>
-      <Layout>
+      <Layout searchInput={searchInput} handleSearchChange={handleSearchChange}>
         <Switch>
           <Route exact path='/'>
-            <WineList winesData={winesData} />
+            <WineList winesData={winesData} searchInput={searchInput} />
           </Route>
           <Route exact path='/wine/:lotCode'>
             <WineDetail winesData={winesData} />
