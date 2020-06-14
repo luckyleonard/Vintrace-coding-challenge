@@ -26,7 +26,7 @@ Click:point_right: https://bit.ly/VINTRACE
 ### Prerequisties
 
 - [Git](https://git-scm.com/downloads)
-- [Node](https://nodejs.org/en/download/) and YARN
+- [Node](https://nodejs.org/en/download/) and [YARN](https://yarnpkg.com/)
 
 ### Installation
 
@@ -34,11 +34,14 @@ Click:point_right: https://bit.ly/VINTRACE
 $ git clone https://github.com/luckyleonard/Vintrace-coding-challenge.git
 $ cd vintrace-coding-challenge
 
-# Install dependencies
-yarn
+# Install frontend dependencies
+$ yarn
 
-#
+# Install backend dependencies
+$ yarn run backend:init
 
+# Start whole project
+$ yarn run dev:start
 ```
 
 ## Deploy
