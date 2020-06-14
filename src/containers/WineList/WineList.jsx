@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { List } from 'antd';
 import { Link } from 'react-router-dom';
-import winePic from '../../assets/images/wine.svg';
+import wineSVG from '../../assets/images/wine.svg';
 
-const StyledItem = styled.div`
+const StyledListItem = styled.div`
   background: #adc9ad;
   border: 1px solid #fff;
 `;
@@ -28,11 +28,11 @@ function WineList({ winesData, searchInput }) {
       itemLayout='horizontal'
       dataSource={listData}
       renderItem={(item) => (
-        <StyledItem>
+        <StyledListItem>
           <Link to={`/wine/${item.lotCode}`}>
             <List.Item>
               <List.Item.Meta
-                avatar={<WinePic src={winePic} alt='wine pic' />}
+                avatar={<WinePic src={wineSVG} alt='wine pic' />}
                 title={item.lotCode}
                 description={
                   item.description ? item.description : 'No description'
@@ -40,7 +40,7 @@ function WineList({ winesData, searchInput }) {
               />
             </List.Item>
           </Link>
-        </StyledItem>
+        </StyledListItem>
       )}
     />
   );

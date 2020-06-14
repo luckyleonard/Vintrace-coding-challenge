@@ -10,7 +10,6 @@ const { Header, Content, Footer } = Layout;
 
 const Logo = styled.img`
   height: 40px;
-
   vertical-align: baseline;
 `;
 
@@ -51,6 +50,22 @@ function PageLayout({ children, searchInput, handleSearchChange }) {
       <Footer style={{ textAlign: 'center' }}>
         Developed by Leonard(DI ZHU) @Email:
         <a href='mailto:dzhu31@hotmail.com'>dzhu31@hotmail.com</a>
+        <div>
+          Icons made by{' '}
+          <a
+            href='https://www.flaticon.com/authors/pixel-perfect'
+            title='Pixel perfect'>
+            Pixel perfect
+          </a>{' '}
+          &
+          <a href='http://www.freepik.com/' title='Freepik'>
+            Freepik{' '}
+          </a>
+          from{' '}
+          <a href='https://www.flaticon.com/' title='Flaticon'>
+            www.flaticon.com
+          </a>
+        </div>
       </Footer>
     </Layout>
   );
