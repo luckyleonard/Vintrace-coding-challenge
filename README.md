@@ -12,8 +12,8 @@ Click :point_right: https://bit.ly/VINTRACE
 
 ## Features
 
-- React Hook + React Router + Axios
-- UI Library: Antd
+- React Hooks + React Router + Axios
+- UI Library: Antd, styled-components
 - Express
 - Unit Test: Jest, React-testing-library
 
