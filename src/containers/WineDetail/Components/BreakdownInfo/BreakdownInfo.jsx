@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { List, Button } from 'antd';
+import PropTypes from 'prop-types';
+
 import pieSVG from '../../../../assets/images/pie-chart.svg';
 
 const PiePic = styled.img`
@@ -65,4 +67,7 @@ function BreakdownInfo({ breakdownInfo }) {
   );
 }
 
+BreakdownInfo.propTypes = {
+  breakdownInfo: PropTypes.object.isRequired,
+};
 export default BreakdownInfo;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Layout, Input, Avatar, Button } from 'antd';
 import { UserOutlined, LeftOutlined } from '@ant-design/icons';
 import { Link, useRouteMatch, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import vintraceLogo from '../../assets/images/Vintrace_logo.png';
 
@@ -70,4 +71,10 @@ function PageLayout({ children, searchInput, handleSearchChange }) {
     </Layout>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  searchInput: PropTypes.string,
+  handleSearchChange: PropTypes.func,
+};
 export default PageLayout;

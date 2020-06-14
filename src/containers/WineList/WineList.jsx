@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { List } from 'antd';
 import { Link } from 'react-router-dom';
 import wineSVG from '../../assets/images/wine.svg';
+import PropTypes from 'prop-types';
 
 const StyledListItem = styled.div`
   background: #adc9ad;
@@ -46,4 +47,8 @@ function WineList({ winesData, searchInput }) {
   );
 }
 
+WineList.propTypes = {
+  winesData: PropTypes.array.isRequired,
+  searchInput: PropTypes.string,
+};
 export default WineList;
