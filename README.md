@@ -55,8 +55,7 @@ Postman online API Doc: https://bit.ly/VINAPIDOC
 
 ```sh
 # run unit test with Jest(React-testing-library)
-$ yarn test
-
+$ yarn run test
 ```
 
 ## Deploy
@@ -64,8 +63,8 @@ $ yarn test
 ### Build
 
 ```sh
-$ yarn run build
 # build website artifacts in ./build
+$ yarn run build
 ```
 
 ### Online Deploy
