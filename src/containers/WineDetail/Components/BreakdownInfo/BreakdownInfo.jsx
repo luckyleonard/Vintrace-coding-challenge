@@ -41,7 +41,7 @@ function BreakdownInfo({ breakdownInfo }) {
       </StyledButton>
     ) : loadingDirty ? (
       <StyledButton>
-        <Button onClick={handleLoadLess}>Loading less</Button>
+        <Button onClick={handleLoadLess}>Show less</Button>
       </StyledButton>
     ) : null;
   //only show Loading less button after click Loading more button
