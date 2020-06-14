@@ -1,18 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
-import { Descriptions } from 'antd';
+import { Descriptions, Input, Button } from 'antd';
+import styled from 'styled-components';
 
 import api_request from '../../utils/apiHelper';
 import url from '../../utils/urlList';
 import BreakdownInfo from './Components/BreakdownInfo';
 
-function WineDetail({ winesData }) {
+const { TextArea } = Input;
+
+const StyledButton = styled.div`
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+`;
+
+function WineDetail() {
   const { lotCode } = useParams('params');
+  const [wineInfo, setWineInfo] = useState({});
   const [breakdownData, setBreakdownData] = useState([]);
+  const [editable, setEditable] = useState(false);
 
-  useEffect(() => {
-    let mounted = true;
+  const toggleEdit = () => {
+    setEditable((prev) => !prev);
+  };
 
+  const handleInfoChange = (e) => {
+    const { value, name } = e.target;
+    setWineInfo((prev) => ({ ...prev, [name]: value }));
+  };
+
+  useLayoutEffect(() => {
+    api_request({ url: url.getWineByLot(lotCode) }).then((res) =>
+      setWineInfo(res.data)
+    );
+  }, [lotCode]);
+  //avoid the page flash
+
+  useLayoutEffect(() => {
     const yearPromise = api_request({ url: url.getYearBreakdown(lotCode) });
     const varietyPromise = api_request({
       url: url.getVarietyBreakdown(lotCode),
@@ -22,21 +47,16 @@ function WineDetail({ winesData }) {
       url: url.getYearAndVarietyBreakdown(lotCode),
     });
 
-    if (mounted) {
-      Promise.all([
-        yearPromise,
-        varietyPromise,
-        regionPromise,
-        yearAndVarietyPromise,
-      ]).then((value) => {
-        setBreakdownData(value.map((item) => item.data));
-      });
-    }
-    //prevent issue with set state in an unmount component
-    return () => (mounted = false);
+    Promise.all([
+      yearPromise,
+      varietyPromise,
+      regionPromise,
+      yearAndVarietyPromise,
+    ]).then((value) => {
+      setBreakdownData(value.map((item) => item.data));
+    });
   }, [lotCode]);
 
-  const wineInfo = winesData.find((wine) => wine.lotCode === lotCode);
   if (!wineInfo) {
     return <Redirect to='/' />;
   }
@@ -58,12 +78,31 @@ function WineDetail({ winesData }) {
           {wineInfo.ownerName}
         </Descriptions.Item>
         <Descriptions.Item label='Product State' span={2}>
-          {wineInfo.productState}
+          <TextArea
+            name='productState'
+            value={wineInfo.productState}
+            onChange={handleInfoChange}
+            readOnly={!editable}
+            style={!editable && { outline: 'none', borderWidth: '0' }}
+            autoSize
+          />
         </Descriptions.Item>
         <Descriptions.Item label='Description' span={3}>
-          {wineInfo.description}
+          <TextArea
+            name='description'
+            value={wineInfo.description}
+            onChange={handleInfoChange}
+            readOnly={!editable}
+            style={!editable && { outline: 'none', borderWidth: '0' }}
+            autoSize
+          />
         </Descriptions.Item>
       </Descriptions>
+
+      <StyledButton>
+        <Button onClick={toggleEdit}>{editable ? 'Submit' : 'Edit'}</Button>
+      </StyledButton>
+
       {breakdownData.map((breakdownInfo) => {
         return (
           <BreakdownInfo

@@ -30,7 +30,7 @@ function App() {
             <WineList winesData={winesData} searchInput={searchInput} />
           </Route>
           <Route exact path='/wine/:lotCode'>
-            <WineDetail winesData={winesData} />
+            <WineDetail />
           </Route>
         </Switch>
       </Layout>
