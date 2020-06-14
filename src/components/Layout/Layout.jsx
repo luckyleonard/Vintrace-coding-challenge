@@ -31,6 +31,8 @@ function PageLayout({ children, searchInput, handleSearchChange }) {
               <Logo alt='Vintrace' src={vintraceLogo} />
             </Link>
             <Input.Search
+              data-testid='searchBar'
+              name='searchBar'
               placeholder='Search Wines'
               value={searchInput}
               onChange={handleSearchChange}
@@ -47,7 +49,7 @@ function PageLayout({ children, searchInput, handleSearchChange }) {
           Go Back
         </Button>
       )}
-      <Content>{children}</Content>
+      <Content data-testid='content'>{children}</Content>
       <Footer style={{ textAlign: 'center' }}>
         Developed by Leonard(DI ZHU) @Email:
         <a href='mailto:dzhu31@hotmail.com'>dzhu31@hotmail.com</a>

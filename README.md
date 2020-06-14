@@ -8,7 +8,7 @@ Vintrace Coding Challenge is powered by Create React App.
 
 ## Online demo
 
-Click:point_right: https://bit.ly/VINTRACE
+Click :point_right: https://bit.ly/VINTRACE
 
 ## Features
 
