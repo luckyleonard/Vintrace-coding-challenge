@@ -10,6 +10,8 @@ Vintrace Coding Challenge is powered by Create React App.
 
 Click :point_right: https://bit.ly/VINTRACE
 
+> First time loading speed could be slow due to the Heroku cold start time for Backend APIs
+
 ## Features
 
 - React Hooks + React Router + Axios
@@ -44,6 +46,8 @@ $ yarn run backend:init
 # Start whole project
 $ yarn run dev:start
 ```
+
+Postman online API Doc: https://bit.ly/VINAPIDOC
 
 ## Test
 
