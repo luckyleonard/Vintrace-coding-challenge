@@ -43,6 +43,7 @@ function PageLayout({ children, searchInput, handleSearchChange }) {
         </Header>
       ) : (
         <Button
+          name='goBack'
           type='primary'
           icon={<LeftOutlined />}
           onClick={() => history.goBack()}>

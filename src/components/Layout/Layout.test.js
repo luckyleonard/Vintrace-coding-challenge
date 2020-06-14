@@ -52,4 +52,18 @@ describe('<Layout/>', () => {
       target: { value: inputChange },
     });
   });
+
+  test('should render "go back" button when not in homepage', () => {
+    history.push('/wines/abc');
+    const { getByRole } = render(
+      <Router history={history}>
+        <PageLayout
+          children={pageContent.children}
+          searchInput={pageContent.searchInput}
+          handleSearchChange={() => {}}
+        />
+      </Router>
+    );
+    expect(getByRole('button', { name: /Go Back/ })).toBeTruthy();
+  });
 });
