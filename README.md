@@ -44,6 +44,16 @@ $ yarn run backend:init
 $ yarn run dev:start
 ```
 
+## Test
+
+### Unit Test
+
+```sh
+# run unit test with Jest(React-testing-library)
+$ yarn test
+
+```
+
 ## Deploy
 
 ### Build
@@ -58,6 +68,6 @@ $ yarn run build
 - Front End: [Netlify](https://www.netlify.com/)
 - RESTful APIs: [Heroku](https://www.heroku.com/home)
 
-## Authors
+## Author
 
 - [DI ZHU(Leonard)](mailto:dzhu31@hotmail.com)
