@@ -15,6 +15,7 @@ Click :point_right: https://bit.ly/VINTRACE
 - React Hook + React Router + Axios
 - UI Library: Antd
 - Express
+- Unit Test: Jest, React-testing-library
 
 ## Issues
 
